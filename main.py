@@ -9,6 +9,7 @@ from streamlit_js_eval import get_geolocation
 import socket
 import uuid
 import platform
+from geopy.geocoders import Nominatim
 
 # Load configuration from secrets.toml
 with open("secrets.toml", "r") as f:
