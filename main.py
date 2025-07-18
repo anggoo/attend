@@ -3,21 +3,22 @@ import streamlit as st
 from datetime import datetime,timedelta, date
 from PIL import Image
 import requests
-from dotenv import load_dotenv
+import toml
 from geopy.distance import geodesic
 from streamlit_js_eval import get_geolocation
 import socket
 import uuid
 import platform
 
-# Load environment variables
-load_dotenv()
+# Load configuration from secrets.toml
+with open("secrets.toml", "r") as f:
+    config = toml.load(f)
 
 # Telegram
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_IDS = os.getenv("TELEGRAM_CHAT_IDS").split("," )
-latitude = os.getenv("latitude")
-longitude = os.getenv("longitude")
+BOT_TOKEN = config["BOT_TOKEN"]
+CHAT_IDS = config["TELEGRAM_CHAT_IDS"]
+latitude = config["latitude"]
+longitude = config["longitude"]
 
 
 # Hardcoded user list
