@@ -10,17 +10,13 @@ import socket
 import uuid
 import platform
 from geopy.geocoders import Nominatim
+import streamlit as st
 
-# Load configuration from secrets.toml
-with open("secrets.toml", "r") as f:
-    config = toml.load(f)
 
-# Telegram
-BOT_TOKEN = config["BOT_TOKEN"]
-CHAT_IDS = config["TELEGRAM_CHAT_IDS"]
-latitude = config["latitude"]
-longitude = config["longitude"]
-
+bot_token = st.secrets["BOT_TOKEN"]
+chat_ids = st.secrets["TELEGRAM_CHAT_IDS"]
+latitude = st.secrets["latitude"]
+longitude = st.secrets["longitude"]
 
 # Hardcoded user list
 USERS = [
