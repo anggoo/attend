@@ -32,11 +32,19 @@ USERS = [
 ALLOWED_LOCATION = (latitude, longitude)  # Change as needed
 ALLOWED_RADIUS_KM = 1.0  # Allowed radius in kilometers
 
+st.write("BOT_TOKEN loaded:", BOT_TOKEN)
+st.write("CHAT_IDS loaded:", CHAT_IDS)
+
 def send_to_telegram(message):
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     for chat_id in CHAT_IDS:
-        payload = {"chat_id": chat_id, "text": message}
-        requests.post(url, data=payload)
+        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+        data = {
+            "chat_id": chat_id,
+            "text": message
+        }
+        response = requests.post(url, data=data)
+        if response.status_code != 200:
+            st.error(f"Failed to send to {chat_id}: {response.text}")
 
 def get_device_info():
     hostname = socket.gethostname()
