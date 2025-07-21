@@ -13,8 +13,6 @@ from geopy.geocoders import Nominatim
 import getpass
 
 
-st.write("Secrets loaded?", "BOT_TOKEN" in st.secrets)
-
 BOT_TOKEN = st.secrets["BOT_TOKEN"]
 CHAT_IDS = st.secrets["TELEGRAM_CHAT_IDS"]
 latitude = st.secrets["latitude"]
