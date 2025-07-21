@@ -30,9 +30,6 @@ USERS = [
 ALLOWED_LOCATION = (latitude, longitude)  # Change as needed
 ALLOWED_RADIUS_KM = 1.0  # Allowed radius in kilometers
 
-st.write("BOT_TOKEN loaded:", BOT_TOKEN)
-st.write("CHAT_IDS loaded:", CHAT_IDS)
-
 def send_to_telegram(message):
     for chat_id in CHAT_IDS:
         url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
