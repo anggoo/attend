@@ -15,8 +15,8 @@ import getpass
 
 st.write("Secrets loaded?", "BOT_TOKEN" in st.secrets)
 
-bot_token = st.secrets["BOT_TOKEN"]
-chat_ids = st.secrets["TELEGRAM_CHAT_IDS"]
+BOT_TOKEN = st.secrets["BOT_TOKEN"]
+CHAT_IDS = st.secrets["TELEGRAM_CHAT_IDS"]
 latitude = st.secrets["latitude"]
 longitude = st.secrets["longitude"]
 
