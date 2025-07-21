@@ -10,10 +10,10 @@ import socket
 import uuid
 import platform
 from geopy.geocoders import Nominatim
-import streamlit as st
 import getpass
 
 
+st.write("Secrets loaded?", "BOT_TOKEN" in st.secrets)
 
 bot_token = st.secrets["BOT_TOKEN"]
 chat_ids = st.secrets["TELEGRAM_CHAT_IDS"]
